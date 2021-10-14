@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <span>Hello {{userDetails.userName}}!</span>
+  <span class="example-spacer"></span>
+  <span>Recruits: {{userDetails.numberOfRecruits}}</span>
+</mat-toolbar>
+  <main class="main-container">
+    <div class="action-buttons-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Filter By</mat-label>
+        <mat-select [value]="selectedFilter$ | async" (valueChange)="onFilterChange($event)">
+          <mat-option value="All">All</mat-option>
+          <mat-option value="Angular">Angular</mat-option>
+          <mat-option value="React">React</mat-option>
+          <mat-option value="Vue">Vue</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="main-content-container">
+      <div class='tech-container'>
+        <tech-card (click)="onTechCardClick('Angular')">
+          <img src="../assets/angular.png" />
+        </tech-card>
+  
+        <tech-card (click)="onTechCardClick('React')">
+          <img src="../assets/react.png" />
+        </tech-card>
+  
+        <tech-card (click)="onTechCardClick('Vue')">
+          <img src="../assets/vue.png" />
+        </tech-card>
+      </div>
+      <div class="search-results">
+        <ng-container *ngFor="let candidate of candidates$ | async">
+          <candidate-card [candidate]="candidate">
+  
+          </candidate-card>
+        </ng-container>
+        
+      </div>
+    </div>
+  </main>

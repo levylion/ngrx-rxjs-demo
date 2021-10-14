@@ -1,0 +1,10 @@
+:host {
+    font-family: Roboto, Arial, sans-serif;
+
+    mat-toolbar {
+        margin-bottom: 10px;
+        .example-spacer {
+            flex: 1 1 auto;
+        }
+    }
+}
